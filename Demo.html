@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<script src=""></script>
+<body>
+
+<script>
+  window.onload = function() {
+    document.body.style.backgroundColor = "lightblue"; // Change this to any color
+  };
+</script>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello Java script!"
+</script>
+<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+  Click me to see the current date.
+</button>
+<p id="demo"></p>
+
+<div class="">
+ <h1><b><center>Wedding Store</center></b></h1>
+ <p>This is your 1st wedding choice.</p>
+ <p>Venue price is $10000</p>
+ <p>Pros - Nice and quiet, romantic, aesthetic and cool. </p>
+ <p>Cons- Bats and small animals, only small crowds due to limited spaces. </p>
+ <p>It is a good choice for a couple looking for a quiet and small wedding and I would recommend this for the adventurous type. </p>
+
+ <!-- Random date button for the 1st wedding -->
+ <button type="button" onclick="showRandomDate('Venue_Restock_1')">
+   Click me to see the next venue availability.
+ </button>
+ <p id="Venue_Restock_1"></p>
+
+ <p> <a href="https://centralqldweddings.com.au/australia/the-caves/wedding-vendor/capricorn-caves">Click here to find more information!</a> </p>
+ <img src="img_la.jpg" alt="LA" style="width:20%">
+
+ <p>This is your 2nd wedding choice.</p>
+ <p>Venue price is $12000</p>
+ <p>Pros - very scenic, cool temperatures, can fit big crowds. </p>
+ <p>Cons- extremely windy, some small birds. </p>
+ <p>It is a good choice for couples looking for a scenic wedding space and that want a large wedding function. </p>
+
+ <!-- Random date button for the 2nd wedding -->
+ <button type="button" onclick="showRandomDate('Venue_Restock_2')">
+   Click me to see the next venue availability.
+ </button>
+ <p id="Venue_Restock_2"></p>
+
+ <p>If you would like to check the venue out: <a href="https://www.easyweddings.com.au/WeddingVenues/Sydney/HorizonsBeachVenueByTopCatCatering/">
+ <p>Click here!</p></a>
+ <img src="Wedding pics.jpg" alt="LA" style="width:20%">
+
+ <p>This is your 3rd wedding choice.</p>
+ <p>Venue price is $12000</p>
+ <p>Pros - aesthetic, warm temperatures, can fit medium crowds. </p>
+ <p>Cons- inside, and not for large crowds.</p>
+ <p>It is a good choice for couples who prefer a quiet and inside space that don't mind a medium sized group. </p>
+
+ <!-- Random date button for the 3rd wedding -->
+ <button type="button" onclick="showRandomDate('Venue_Restock_3')">
+   Click me to see the next venue availability.
+ </button>
+ <p id="Venue_Restock_3"></p>
+
+ <p><a href="https://www.easyweddings.com.au/WeddingVenues/Sydney/HorizonsBeachVenueByTopCatCatering/">Curious to find out more... click here!</a></p>
+ <img src="More wedding pictures 1.jpeg" alt="LA" style="width:20%">
+
+ <p>This is your 4th wedding choice.</p>
+ <p>Venue price is $19000</p>
+ <p>Pros - small town, romantic, aesthetic, a small taste of Italian history and beautiful views. </p>
+ <p>Cons- lively town, only small crowds due to limited spaces. </p>
+ <p>This is a good choice for couples looking for a nice view and want to indulge in culture while being able to tolerate a small group of guests. </p>
+
+ <!-- Random date button for the 4th wedding -->
+ <button type="button" onclick="showRandomDate('Venue_Restock_4')">
+  Click me to see the next venue availability.
+ </button>
+<p id="Venue_Restock_4"></p>
+
+<p><a href="https://www.theweddingplannersmonaco.com/wedding-venues-italy/">Click here to find out more!</a></p>
+<img src="Even More wedding venues.jpeg" alt="LA" style="width:20%">
+
+</div>
+
+<script>
+function showRandomDate(elementId) {
+  const today = new Date();
+  const randomOffset = Math.floor(Math.random() * 5) + 1; // 1 to 5 days
+  const randomDate = new Date(today);
+  randomDate.setDate(today.getDate() + randomOffset);
+  
+  document.getElementById(elementId).innerHTML = randomDate.toDateString(); 
+}
+</script>
+
+<!-- 🎉 New code at the bottom for wedding selection -->
+<hr>
+
+<h2>Wedding Venue Checkout</h2>
+
+<input type="text" id="userInput" placeholder="Please select a wedding from above ⬆️" style="width:250px; height:20px;">
+<button onclick="checkInput()">Submit</button>
+
+<p id="message"></p>
+
+<script>
+function checkInput() {
+  var input = document.getElementById("userInput").value.toLowerCase();
+
+  let price = "";
+  if (input === "wedding 1") {
+    price = "$10,000";
+  } else if (input === "wedding 2") {
+    price = "$12,000";
+  } else if (input === "wedding 3") {
+    price = "$12,000";
+  } else if (input === "wedding 4") {
+    price = "$19,000";
+  }
+  if (price !== ""){
+    if (input === "wedding 1" || input === "wedding 2" || input === "wedding 3" || input === "wedding 4") {
+      document.getElementById("message").innerText = "✅ Nice Pick! You have selected " + input + ". The price is " + price + ".";
+    } else {
+      document.getElementById("message").innerText = "❌ Wrong input. Please type 'wedding 1', 'wedding 2', 'wedding 3', or 'wedding 4'.";
+    }
+  }
+}
+</script>
+
+<!-- 🔥 Your requested phone number checker added neatly below -->
+
+<hr>
+
+<h2>Detail Submision</h2>
+
+<input type="text" id="phoneInput" placeholder="Enter your phone number 📱" style="width:250px; height:20px;">
+<button onclick="checkPhoneNumber()">Submit Phone Number</button>
+
+<p id="phoneMessage"></p>
+
+<script>
+function checkPhoneNumber() {
+  var input = document.getElementById("phoneInput").value.trim();
+  var outputDiv = document.getElementById("phoneMessage");
+
+  // Remove all non-digit characters
+  var cleanedInput = input.replace(/\D/g, '');
+
+  if (cleanedInput.length >= 3 && cleanedInput.length <= 15) {
+    outputDiv.style.color = "green";
+    outputDiv.innerHTML = "✅we will be in contact soon: " + cleanedInput;
+  } else {
+    outputDiv.style.color = "red";
+    outputDiv.innerHTML = "❌ Error: Please enter a phone number with 3 to 15 digits.";
+  }
+}
+</script>
+
+<input type="text" id="nameInput" placeholder="What is your name?" style="width:250px; height:20px;">
+<button onclick="checkName()">Submit Name</button>
+
+<p id="nameMessage"></p>
+
+<script>
+function checkName() {
+  var input = document.getElementById("nameInput").value.trim();
+  var outputDiv = document.getElementById("nameMessage");
+
+  // Check that it only contains letters (allow spaces too if needed)
+  var validName = /^[A-Za-z\s]+$/.test(input);
+
+  if (validName && input.length >= 2 && input.length <= 20) {
+    outputDiv.style.color = "green";
+    outputDiv.innerHTML = "✅ Thank you, " + input + "! This is the end of the checkout, have a good day, your bill will be emailed to you shortly.";
+  } else {
+    outputDiv.style.color = "red";
+    outputDiv.innerHTML = "❌ Error: Please enter a valid name (2-20 letters).";
+  }
+}
+
+</script>
+</body>
+</html>
